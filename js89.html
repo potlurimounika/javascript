@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        class A
+        {
+            fofca()
+            {
+                console.log("I am function of class A")
+            }
+        }
+        class B extends A
+        {
+            fofcb()
+            {
+                console.log("I am function of class B")
+            }
+        }
+        class C extends B
+        {
+            fofcc()
+            {
+                console.log("I am function of class C")
+            }
+        }
+        objB=new B()
+        objB.fofca()
+        console.log(".........")
+        objC=new C()
+        objC.fofcb()
+        objC.fofcc()
+        </script>
+    </body>
+</html>
