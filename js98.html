@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            font-family:arial;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background-color:pink;
+            margin:5px;
+        }
+        .container
+        {
+            background-color:#008080;
+            padding:25px 40px 25px 15px;
+            border-radius:10px;
+            text-align:start;
+            width:300px;
+        }
+        input {
+            padding:10px;
+            width:100%;
+            margin-bottom:20px;
+            border:1px solid red;
+            border-radius:4px;
+        }
+        .button
+        {
+            padding:10px 20px;
+            background-color:#007bff;
+            color:#fff;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+        }
+        #result
+        {
+            margin-top:20px;
+            font-size:1.2em;
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <h2>Electricity Bill Calculator</h2>
+            <label for="units">Enter Electricity Units:</label>
+            <input type="number" id="units" placeholder="Enter number of units" min="0">
+            <button onClick="CalculateBill()">CalculateBill</button>
+            <p id="result"></p>
+            </div>
+            <script>
+                function CalculateBill()
+                {
+                    const units=parseFloat (document.getElementById("units").value);
+                    bill=0;
+                    if(units<=50)
+                {
+                    bill=units*0.50;
+                }
+                else if(units<=150)
+                {
+                    bill=(50*0.50)+((units-50)*0.75);
+                }
+                else if(units<=250)
+                {
+                    bill=(50*0.50)+(100*0.75)+((units-150)*1.20);
+                }
+                else
+                {
+                    bill=(50*0.50)+(100*0.75)+(100*1.20)+((units-250)*1.50);
+                }
+                surcharge=bill*0.20;
+                totalBill=bill+surcharge;
+                document.getElementById("result").innerText=`totalElectricityBill:RS. ${totalBill.toString()}`; 
+                }
+            </script>
+            </body>
+</html>

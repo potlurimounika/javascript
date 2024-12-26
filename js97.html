@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            background-color: bisque;
+        }
+        table, tr, td {
+            border-collapse: collapse;
+            border-style: none;
+        }
+        .dl {
+            background-color: darkmagenta;
+            width: 200px;
+            height: 100px;
+            margin-left: 600px;
+            margin-top: 250px;
+            color: yellow;
+            box-shadow: 4px 4px 4px #000000;
+            padding: 20px 20px 20px 20px;
+        }
+        .btsl {
+            border-radius: 5px;
+            background-color: aqua;
+        }
+        .tbsl {
+            border-radius: 5px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <form name="fml">
+        <div class="dl">
+            <table>
+                <tr>
+                    <td>
+                        <label for="aval">PRINCIPAL</label>
+                        <input type="text" id="v1" name="aval" placeholder="a value" required focus class="tbsl">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="bval">TIME</label>
+                        <input type="text" id="v2" name="bval" placeholder="b value" required class="tbsl">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="cval">RATE OF INTEREST</label>
+                        <input type="text" id="v3" name="cval" placeholder="c value" required class="tbsl">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position:relative;left:20px;">
+                        <input type="button" value="SI" class="btsl" onClick="sic()">
+                        <input type="button" value="CI" class="btsl" onClick="cic()">
+                        <input type="reset" value="C" class="btsl" onClick="reset()">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+    function sic() {
+       p=parseInt(document.getElementById("v1").value);
+       t=parseInt(document.getElementById("v2").value);
+       r=parseInt(document.getElementById("v3").value);
+       si=p*t*r/100
+       alert(si,"simpleInterest")
+    }
+    function cic()
+    {
+        p=parseInt(document.getElementById("v1").value);
+       t=parseInt(document.getElementById("v2").value);
+       r=parseInt(document.getElementById("v3").value);
+       ci=p*(Math.pow(1+r/100,t))
+       alert(ci)
+    }
+</script>
+</html>

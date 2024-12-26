@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dl 
+        {
+            margin-left:600px;
+            margin-top:225px;
+            background-color:#6E69BF;
+            width:260px;
+            padding:10px 10px 10px 10px;
+            box-shadow:2px 2px 2px #000000;
+            color:yellow;
+        }
+        body 
+        {
+            background-color:#ff2cc3;
+        }
+        .tl 
+        {
+            border-radius:5px;
+        }
+        .img1 
+        {
+            margin-left:600px;
+        }
+        .btsl 
+        {
+            margin-left:40px;
+        }
+        </style>
+        </head>
+        <body>
+            <img class="img1" src="file://c:/images/logo.gif" alt="no image">
+            <form name="fnl">
+                <div class="dl">
+                    <table>
+                        <tr><td><label for="lb1">A</label></td>
+                        <td><input type="text" id="v1" placeholder="a value" required autofocus class="t1"></td>
+                    </tr>
+                    <tr><td><label for="lb2">B</label></td>
+                        <td><input type="text" id="v2" placeholder="b value" required autofocus class="t1"></td>
+                    </tr>
+                    <tr><td><label for="lb1">C</label></td>
+                        <td><input type="text" id="v3" placeholder="c value" required autofocus class="t1"></td>
+                    </tr>
+                    <td></td>
+                    <td><input type="button" value="check Big" onClick="Cbig()"></td>
+                    <td><input type="reset" value="clear" onClick="reset()" style="margin-left:-80px;"></td>
+                    </tr>
+                    </table>
+                </div>
+            </form>
+        </body>
+        <script type="text/javascript">
+            function Cbig()
+            {
+                a=parseInt(document.getElementById("v1").value)
+                b=parseInt(document.getElementById("v2").value)
+                c=parseInt(document.getElementById("v3").value)
+                if(a>b && a>c)
+            {
+                alert("a is big")
+            }
+            else if(b>a && b>c)
+            {
+                alert("b is big")
+            }
+            else
+            {
+                alert("c is big")
+            }
+            }
+        </script>
+        </html>

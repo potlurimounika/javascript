@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: rgb(241, 30, 210);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200vh;
+            margin: 0;
+        }
+        .container {
+            background-color: aqua;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            padding: 8px;
+            width: 300px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Marks and Grade Calculator</h2>
+        <label for="sno">Student Number:</label>
+        <input type="text" id="sno" placeholder="Enter student number" required>
+
+        <label for="sname">Student Name:</label>
+        <input type="text" id="sname" placeholder="Enter student name" required>
+
+        <label for="sclass">Class:</label>
+        <input type="text" id="sclass" placeholder="Enter class" required>
+
+        <label for="section">Section:</label>
+        <input type="text" id="section" placeholder="Enter section" required>
+
+        <label for="mark1">Mark 1:</label>
+        <input type="number" id="mark1" placeholder="Enter mark 1" required>
+
+        <label for="mark2">Mark 2:</label>
+        <input type="number" id="mark2" placeholder="Enter mark 2" required>
+
+        <label for="mark3">Mark 3:</label>
+        <input type="number" id="mark3" placeholder="Enter mark 3" required>
+
+        <label for="mark4">Mark 4:</label>
+        <input type="number" id="mark4" placeholder="Enter mark 4" required>
+
+        <label for="mark5">Mark 5:</label>
+        <input type="number" id="mark5" placeholder="Enter mark 5" required>
+
+        <label for="mark6">Mark 6:</label>
+        <input type="number" id="mark6" placeholder="Enter mark 6" required>
+
+        <div class="button-container">
+            <button onclick="calculateResults()">Calculate</button>
+            <button onclick="resetFields()">Reset</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateResults() {
+            var sno = document.getElementById("sno").value;
+            var sname = document.getElementById("sname").value;
+            var sclass = document.getElementById("sclass").value;
+            var section = document.getElementById("section").value;
+            var marks = [
+                parseFloat(document.getElementById("mark1").value),
+                parseFloat(document.getElementById("mark2").value),
+                parseFloat(document.getElementById("mark3").value),
+                parseFloat(document.getElementById("mark4").value),
+                parseFloat(document.getElementById("mark5").value),
+                parseFloat(document.getElementById("mark6").value),
+            ];
+
+            var total = 0;
+            var isFail = false;
+            for (var i = 0; i < marks.length; i++) {
+                if (marks[i] < 35) {
+                    isFail = true;
+                }
+                total += marks[i];
+            }
+             average = total / marks.length;
+            let grade;
+
+            if (isFail) {
+                grade = "F";
+            } else if (average >= 90) {
+                grade = "A";
+            } else if (average >= 75) {
+                grade = "B";
+            } else if (average >= 60) {
+                grade = "C";
+            } else if (average >= 50) {
+                grade = "D";
+            } else {
+                grade = "E";
+            }
+
+            var passOrFail = isFail ? "Fail" : "Pass";
+
+            var resultText =" ";
+            resultText += "<p>Student Number: " + sno + "</p>";
+            resultText += "<p>Student Name: " + sname + "</p>";
+            resultText += "<p>Class: " + sclass + "</p>";
+            resultText += "<p>Section: " + section + "</p>";
+            resultText += "<p>Total Marks: " + total + "</p>";
+            resultText += "<p>Average Marks: " + average.toFixed(2) + "</p>";
+            resultText += "<p>Grade: " + grade + "</p>";
+            resultText += "<p>Status: " + passOrFail + "</p>";
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+
+        function resetFields() {
+            document.getElementById('sno').value = '';
+            document.getElementById('sname').value = '';
+            document.getElementById('sclass').value = '';
+            document.getElementById('section').value = '';
+            document.getElementById('mark1').value = '';
+            document.getElementById('mark2').value = '';
+            document.getElementById('mark3').value = '';
+            document.getElementById('mark4').value = '';
+            document.getElementById('mark5').value = '';
+            document.getElementById('mark6').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
