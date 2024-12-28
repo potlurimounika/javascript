@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="mi">choose values:</label>
+        <select id="mi" multiple onchange="dsv()">
+            <option value="pen">PEN</option>
+            <option value="pencil">PENCIL</option>
+            <option value="book">BOOK</option>
+            <option value="eraser">ERASER</option>
+        </select>
+    </form>
+    <P id="ps">selected values will be displayed here:</P>
+    <script>
+        function dsv()
+        {
+            var x=[];
+            var y=document.getElementById("mi");
+            for(var i=0;i<y.options.length;i++)
+        {
+            if(y.options[i].selected)
+
+            {
+            x.push(y.options[i].value);
+        }
+        }
+        document.getElementById("ps").innerText="selected values:"+x.join(',');
+    }
+    </script>
+</body>
+</html>

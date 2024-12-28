@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="greet()">
+    this is page contains html and javascript
+</body>
+<script type="text/javascript">
+    function greet()
+    {
+        name=prompt("Enter your name"," ")
+        age=prompt("enter your age"," ")
+        if(age<18)
+    {
+        window.location="http://www.google.com"
+        alert("not eligible to visit")
+    }
+    else{
+        alert("welcome to my site"+name);
+    }
+    }
+</script>
+</html>

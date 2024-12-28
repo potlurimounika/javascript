@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>how would you like your coffee?</p>
+    <form>
+        <input type="radio" name="coffee" value="cream" onchange="updateorder()">with cream<br>
+        <input type="radio" name="coffee" value="sugar" onchange="updateorder()">with sugar<br>
+        <input type="text" id="td" size="50">    
+    </form>
+    <script>
+        function updateorder()
+        {
+          var  x=document.getElementsByName('coffee');
+           var y=Array.from(x).find(radio=>radio.checked);
+            if(y)
+        {
+           var z=y.value;
+            document.getElementById('td').value="you ordered coffee with"+z;
+        }
+        else
+        {
+            document.getElementById('td').value=" ";
+        }
+        }
+    </script>
+</body>
+</html>

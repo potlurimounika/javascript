@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>how would you like your coffee</p>
+    <form>
+        <input type="checkbox" name="coffee" value="cream" onchange="updateorder()">with cream<br>
+        <input type="checkbox" name="coffee" value="sugar" onchange="updateorder()">with sugar<br>
+        <input type="text" id="order" size="50">    
+    </form>
+    <script>
+        function updateorder()
+        {
+            x=document.getElementsByName("coffee");
+            y=Array.from(x).filter(checkbox=>checkbox.checked);
+            if(y.length>0)
+        {
+            z=y.map(checkbox=>checkbox.value);
+            document.getElementById('order').value="you ordered coffee with"+z.join(',');
+        }
+        else
+        {
+            document.getElementById('order').value=" ";
+        }
+        }
+    </script>
+</body>
+</html>
