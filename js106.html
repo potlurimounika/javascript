@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="redirect()">
+    <h2>redirect a web page after 5 seconds</h2>
+    <p id="result"></p>
+    <script>
+        function redirect()
+        {
+            var interval=setInterval(myURL,5000);
+            var result=document.getElementById("result");
+            result.inertHTML="<b> the page will redirect afterdelay of 5 seconds set Interval()method.";
+        }
+        function myURL()
+        {
+            document.location.href="https://www.nipunatechnologies.com";
+        }
+    </script>
+</body>
+</html>
