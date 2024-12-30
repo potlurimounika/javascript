@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Input creadit card No.[starting with 34 or 37,length 15 digits(American express and submit)]</h2>
+    <form name="form1" action="#">
+        <input type="text" name="text1" autofocus></li>
+        <input type="submit" name="submit" value="submit" onclick="cardnumber(document.form1.text1)"/></li> 
+</form>
+</body>
+<script>
+    function cardnumber(inputText)
+    {
+        var cardno=/^(?:3[47][0-9]{13})$/;
+        if(inputText.value.match(cardno))
+    {
+        alert("your card is valid");
+        return true;
+    }
+    else
+    {
+        alert("not a valid american express credit card number");
+        return false;
+    }
+    }
+</script>
+        </html>
