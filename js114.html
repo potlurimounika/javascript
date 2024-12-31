@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        font-size:16px;
+        background:#f9f9f9;
+        font-family:"segoe UI","Helvetica Neue",Arial,sans-serif;
+    }
+    h2
+    {
+        text-align:center;
+        text-decoration:underline;
+    }
+    form{
+        width:300px;
+        background:#fff;
+        padding:15px 40px 40px;
+        border:1px solid #ccc;
+        margin:50px auto 0;
+        border-radius:5px;
+    }
+    label
+    {
+        display:block;
+        margin-bottom:5px;
+    }
+    label i{
+        color:#999;
+        font-size:80%;
+    }
+    input,select
+    {
+        border:1px solid #ccc;
+        padding:10px;
+        display:block;
+        width:100%;
+        box-sizing:border-box;
+        border-radius:2px;
+    }
+    .row
+    {
+        padding-bottom:10px;
+    }
+    .form-inline
+    {
+        border:1px solid #ccc;
+        padding:8px 10px 4px;
+        border-radius:2px;
+    }
+    .form-inline label,.form-inline input
+    {
+        display:inline-block;
+        width:auto;
+        padding-right:15px;
+    }
+    .error
+    {
+        color:red;
+        font-size:90%;
+    }
+    input[type="submit"]
+    {
+        font-size:110%;
+        font-weight:100;
+        background:#006dcc;
+        border-color:#016Bc1;
+        box-shadow:0 3px 0 #0165b6;
+        color:#fff;
+        margin-top:10px;
+        cursor:pointer;
+    }
+    input[type="submit"]:hover
+    {
+        background:#0165b6;
+    }
+</style>
+</head>
+<body>
+    <form name="contact form" onsubmit="return validateform()" actio="confirmation.php" method="post">
+        <h2>Application form</h2>
+        <div class="row">
+            <label>Full Name</label>
+            <input type="text" name="name">
+            <div class="error" id="nameerr"></div>
+        </div>
+        <div class="row">
+            <label>Email Address</label>
+            <input type="text" name="email">
+            <div class="error" id="emailerr"></div>
+            </div>
+            <div class="row">
+                <label>Mobile Number</label>
+                <input type="text" name="mobile" maxlength="10">
+                <div class="error" id="mobileerr"></div>
+                </div>
+                <div class="row">
+                    <label>Country</label>
+                    <select name="country">
+                        <option>Select</option>
+                        <option>Australia</option>
+                        <option>India</option>
+                        <option>United States</option>
+                        <option>United Kingdom</option>
+                    </select>
+                <div class="error" id="countryerr"></div>
+                </div>
+                <div class="row">
+                    <label>Gender</label>
+                    <div class="form-inline">
+                        <label><input type="radio" name="gender" value="male">Male</label>
+                        <label><input type="radio" name="gender" value="Female">FeMale</label>
+                    </div>
+                <div class="error" id="gendererr"></div>
+                </div>
+                <div class="row">
+                    <label>Hobbies<i>(optional)</i></label>
+                <div class="form-inline">
+                    <label><input type="checkbox" name="hobbies[]" value="sports">Sports</label>
+                    <label><input type="checkbox" name="hobbies[]" value="movies">Movies</label>
+                    <label><input type="checkbox" name="hobbies[]" value="music">Music</label>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="submit">
+                    </div>
+                    </form>
+                    <script>
+                        function printError(elemId,hintmsg)
+                        {
+                            document.getElementById(elemId).innerHTML=hintmsg;
+                        }
+                        function validateform()
+                        {
+                            name=document.ContactForm.name.value;
+                            email=document.ContactForm.email.value;
+                            mobile=document.ContactForm.mobile.value;
+                            country=document.ContactForm.country.value;
+                            gender=document.ContactForm.gender.value;
+                            hobbies=[];
+                            var checkboxes=document.getElementsByName("hobbies[]");
+                            for(var i=0;i<checkboxes.length;i++)
+                        {
+                            if(checkboxes[i].checked)
+                        {
+                            hobbies.push(checkboxes[i].value);
+                        }
+                        }
+                        var nameerr=emailerr=mobileerr=countryerr=gendererr=true;
+                        if(name==" ")
+                        {
+                            printError("nameerr","please enter your name");
+                        }
+                        else{
+                            var regex=/^[a-z A-Z\s]+$/;
+                            if(regex.test(name)===false)
+                        {
+                            printError("nameerr","please enter a valid name");
+                        }
+                        else{
+                            printError("nameerr"," ");
+                            nameerr=false;
+                        }
+                        }
+                        if(email==" ")
+                        {
+                            printError("emailerr","please enter your email addres");
+                        }
+                        else
+                        {
+                            var regex=/^\S+@\s+\.\s+$/;
+                            if(regex.test(email)===false)
+                        {
+                            printError("emailerr","please enter a valid email address");
+                        }
+                        else
+                        {
+                            printError("emailerr"," ");
+                            emailerr=false;
+                        }
+                        }
+                        if(mobile==" ")
+                        {
+                            printError("mobileerr","please enter your mobile number");
+                        }
+                        else{
+                            var regex=/^[1-9]\d{9}$/;
+                            if(regex.test(mobile)===false)
+                        {
+                            printError("mobileerr","please enter a valid 10 digit mobile number");
+                        }
+                        else{
+                            printError("mobileerr"," ");
+                            mobileerr=false;
+                        }
+                        }
+                        if(country=="select")
+                        {
+                            printError("countryerr","please select your country");
+                        }
+                        else{
+                            printError("countrterr"," ");
+                            countryerr=false;
+                        }
+                        if(gender==" ")
+                        {
+                            printError("gendererr","please select your gender");
+                        }
+                        else
+                        {
+                            printError("gendererr"," ");
+                            gendererr=false;
+                        }
+                        if((nameerr||emailerr||mobileerr||countryerr||gendererr)==true)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            datapreview="you've entered the following details:\n"+
+                            "full name:"+name+"\n"+
+                            "email address:"+email+"\n"+
+                            "mobile number:"+mobile+"\n"+
+                            "country:"+country+"\n"+
+                            "gender:"+gender+"\n";
+                            if(hobbies.length)
+                        {
+                            datapreview+="Hobbies:"+hobbies.join(",");
+                        }
+                        alert(datapreview);
+                        }
+                    };
+                    </script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>javascript callbacks</h2>
+    <p id="demo"></p>
+    <script>
+      function myDisplayer(some)
+      {
+        document.getElementById("demo").innerHTML=some;
+      }
+      function getFile(myCallback)
+      {
+        let reg=new XMLHttpRequest();
+        reg.onload=function()
+        {
+            if(reg.status==200)
+        {
+            myCallback(this.responseText);
+        }
+        else
+        {
+            myCallback("error:"+req.status);
+        }
+        }
+        reg.open("GET","mycar.html");
+        reg.send();
+      }
+      getFile(myDisplayer);
+    </script> 
+</body>
+</html>

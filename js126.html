@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>javascript promise object</h1>
+    <h2>the then()method</h2>
+    <p>wait 3 seconds(3000 milliseconds)for this page to change</p>
+    <h1 id="demo"></p>
+    <script>
+       const myPromise=new Promise(function(myResolve,myReject)
+    {
+        setTimeout(function(){myResolve("I LOVE YOU!!");},3000);
+    });
+    myPromise.then(function(value)
+{
+    document.getElementById("demo").innerHTML=value;
+});
+    </script> 
+</body>
+</html>
