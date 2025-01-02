@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function asynchronous_operational_method()
+        {
+            let first_Promise=new Promise((resolve,reject)=>resolve("Hello"));
+            let second_Promise=new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve("GeeksforGeeks:");
+                },1000);
+            });
+            let combined_Promise=Promise.all([first_Promise,second_Promise]);
+            return combined_Promise;
+        }
+        async function display()
+        {
+            let data=await asynchronous_operational_method();
+            console.log(data);
+        }
+        display();
+    </script>
+</body>
+</html>
